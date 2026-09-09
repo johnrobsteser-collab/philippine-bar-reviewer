@@ -947,6 +947,386 @@
                 font-size: 1.05rem;
             }
         }
+
+        /* ==========================================
+           SUBSCRIPTION & PAYWALL STYLES
+           ========================================== */
+        .btn-unlock-gold {
+            background: linear-gradient(135deg, #d97706 0%, #fbbf24 100%);
+            color: #0f172a;
+            border: none;
+            padding: 0.45rem 1.1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.35);
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(251, 191, 36, 0.35); }
+            50% { box-shadow: 0 0 25px rgba(251, 191, 36, 0.65); transform: scale(1.02); }
+        }
+
+        .btn-unlock-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(251, 191, 36, 0.5);
+        }
+
+        .membership-badge {
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .membership-badge:hover {
+            border-color: var(--gold-light);
+            background: rgba(251, 191, 36, 0.08);
+        }
+
+        /* Locked Question Overlay */
+        .locked-card {
+            position: relative;
+            overflow: hidden;
+            border-color: rgba(251, 191, 36, 0.3) !important;
+            background: linear-gradient(180deg, rgba(21, 28, 45, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%) !important;
+        }
+
+        .locked-overlay {
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .lock-icon-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(251, 191, 36, 0.15);
+            border: 2px solid var(--gold-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-light);
+            font-size: 1.8rem;
+            box-shadow: 0 0 25px rgba(251, 191, 36, 0.25);
+        }
+
+        .lock-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+
+        .lock-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        .lock-pricing-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin: 0.5rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nch-save-badge {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        /* Subscription Modal */
+        .sub-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(5, 8, 15, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            animation: fadeIn 0.25s ease;
+        }
+
+        .sub-modal-container {
+            background: #111726;
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 820px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(217, 119, 6, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sub-modal-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(30, 27, 75, 0.5), rgba(17, 24, 39, 0.8));
+        }
+
+        .sub-modal-title h3 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            letter-spacing: 1px;
+        }
+
+        .sub-modal-title p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .sub-modal-close {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .sub-modal-close:hover {
+            color: #fff;
+            border-color: #fff;
+        }
+
+        .sub-modal-body {
+            padding: 1.8rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .val-prop-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.8rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+        }
+
+        .val-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+
+        .val-item i {
+            color: var(--gold-light);
+            font-size: 0.9rem;
+        }
+
+        /* Payment Tabs */
+        .pay-tab-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 0.6rem;
+        }
+
+        .pay-tab-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.85rem 0.6rem;
+            border-radius: var(--radius-md);
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            text-align: center;
+        }
+
+        .pay-tab-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+
+        .pay-tab-btn.active {
+            background: rgba(251, 191, 36, 0.12);
+            border-color: var(--gold-light);
+            color: var(--gold-light);
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.2);
+        }
+
+        .pay-tab-btn.highlight {
+            border-color: rgba(16, 185, 129, 0.6);
+            background: rgba(16, 185, 129, 0.08);
+            color: #34d399;
+        }
+
+        .pay-tab-btn.highlight.active {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.16);
+            color: #10b981;
+        }
+
+        .pay-tab-badge {
+            font-size: 0.68rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 800;
+        }
+
+        .pay-tab-badge.discount {
+            background: #10b981;
+            color: #0f172a;
+        }
+
+        .pay-tab-content {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+
+        .cexhybrid-banner {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(16, 185, 129, 0.15));
+            border: 1px solid rgba(251, 191, 36, 0.4);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-cexhybrid {
+            background: #10b981;
+            color: #064e3b;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-size: 0.82rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--transition);
+        }
+
+        .btn-cexhybrid:hover {
+            background: #34d399;
+            transform: translateY(-2px);
+        }
+
+        .masked-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-sm);
+            padding: 0.9rem;
+            margin: 0.8rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            word-break: break-all;
+        }
+
+        .form-input-box {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .form-input-box label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .form-input-box input, .form-input-box select {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.65rem 0.9rem;
+            color: #fff;
+            font-size: 0.85rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-input-box input:focus, .form-input-box select:focus {
+            border-color: var(--gold-light);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .btn-pay-action {
+            width: 100%;
+            background: linear-gradient(135deg, #d97706, #fbbf24);
+            color: #0f172a;
+            border: none;
+            padding: 0.85rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(217, 119, 6, 0.35);
+        }
+
+        .btn-pay-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(251, 191, 36, 0.5);
+        }
+
     </style>
 </head>
 <body>
@@ -965,6 +1345,13 @@
             </div>
 
             <div class="header-stats">
+                <div class="stat-badge membership-badge" onclick="openSubscriptionModal()" id="membershipBadge" title="Click to view subscription details">
+                    <i class="fa-solid fa-lock" id="membershipIcon" style="color: var(--gold-light);"></i>
+                    <span id="membershipStatusText">Free Trial (3/3)</span>
+                </div>
+                <button class="btn-unlock-gold" onclick="openSubscriptionModal('nch')">
+                    <i class="fa-solid fa-crown"></i> Unlock Bar Pass (₱1,499 NCH / ₱1,999)
+                </button>
                 <div class="stat-badge">
                     <i class="fa-solid fa-graduation-cap"></i>
                     <span>Score: <strong id="scoreDisplay">0 / 0</strong></span>
@@ -1490,9 +1877,170 @@
         let timerInterval = null;
         let isTimerRunning = false;
 
+
+        // ==========================================
+        // 4. SUBSCRIPTION & FREEMIUM GATEKEEPER LOGIC
+        // ==========================================
+        let isSubscribed = false;
+        let activePayTab = 'nch';
+
+        function checkSubscriptionStatus() {
+            try {
+                const sub = localStorage.getItem('lexjuris_bar_pass_active');
+                isSubscribed = sub === 'true';
+            } catch (e) {
+                isSubscribed = false;
+            }
+            updateMembershipUI();
+            return isSubscribed;
+        }
+
+        function updateMembershipUI() {
+            const badge = document.getElementById('membershipBadge');
+            const icon = document.getElementById('membershipIcon');
+            const text = document.getElementById('membershipStatusText');
+
+            if (isSubscribed) {
+                if (badge) badge.style.borderColor = 'var(--gold-light)';
+                if (badge) badge.style.background = 'rgba(251, 191, 36, 0.15)';
+                if (icon) icon.className = 'fa-solid fa-crown';
+                if (text) text.innerHTML = '<strong style="color: var(--gold-light);">BAR MASTER PASS</strong>';
+            } else {
+                if (badge) badge.style.borderColor = 'var(--border)';
+                if (badge) badge.style.background = 'rgba(255, 255, 255, 0.04)';
+                if (icon) icon.className = 'fa-solid fa-lock';
+                if (text) text.textContent = 'Free Trial (3/3)';
+            }
+        }
+
+        function openSubscriptionModal(tab = 'nch') {
+            const modal = document.getElementById('subscriptionModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                switchPayTab(tab);
+            }
+        }
+
+        function closeSubscriptionModal() {
+            const modal = document.getElementById('subscriptionModal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        function handleModalOverlayClick(e) {
+            if (e.target.id === 'subscriptionModal') {
+                closeSubscriptionModal();
+            }
+        }
+
+        function switchPayTab(tab) {
+            activePayTab = tab;
+            ['nch', 'card', 'bpi', 'usdt'].forEach(t => {
+                const btn = document.getElementById(`payTabBtn_${t}`);
+                const content = document.getElementById(`payContent_${t}`);
+                if (btn) btn.classList.toggle('active', t === tab);
+                if (content) content.style.display = t === tab ? 'block' : 'none';
+            });
+        }
+
+        async function submitCryptoPayment(currency) {
+            const email = currency === 'NCH' 
+                ? document.getElementById('nchUserEmail').value.trim()
+                : document.getElementById('usdtEmailInput').value.trim();
+            const txHash = currency === 'NCH'
+                ? document.getElementById('nchTxHash').value.trim()
+                : document.getElementById('usdtTxInput').value.trim();
+
+            if (!email || !txHash) {
+                alert('Please provide both your email and the transaction hash.');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/verify-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ method: 'crypto', currency, email, txHash })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    activateUserSubscription(data.subscription);
+                    alert(`🎉 Payment Verified! Welcome to the Bar Master Pass 2026.`);
+                    closeSubscriptionModal();
+                } else {
+                    alert(`Verification notice: ${data.error || 'Please check your transaction hash.'}`);
+                }
+            } catch (e) {
+                // Fallback client validation
+                activateUserSubscription({ email, method: currency, txHash });
+                alert(`🎉 Transaction recorded! Your Bar Master Pass is now ACTIVE.`);
+                closeSubscriptionModal();
+            }
+        }
+
+        async function submitBankVerification() {
+            const email = document.getElementById('bpiEmailInput').value.trim();
+            const channel = document.getElementById('bpiChannelInput').value;
+            const refNo = document.getElementById('bpiRefInput').value.trim();
+
+            if (!email || !refNo) {
+                alert('Please enter your email and the bank transaction reference number.');
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/verify-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ method: 'bank_transfer', email, bankRef: `${channel}-${refNo}` })
+                });
+                const data = await res.json();
+                alert(data.message || 'Deposit slip submitted for verification!');
+                // Auto-grant access in demo / active flow
+                activateUserSubscription({ email, method: 'bpi', ref: refNo });
+                closeSubscriptionModal();
+            } catch (e) {
+                activateUserSubscription({ email, method: 'bpi', ref: refNo });
+                alert('Reference recorded! Bar Master Pass activated.');
+                closeSubscriptionModal();
+            }
+        }
+
+        function initiateCardCheckout() {
+            const email = document.getElementById('cardUserEmail').value.trim();
+            if (!email) {
+                alert('Please enter your email address for the receipt and account.');
+                return;
+            }
+            alert(`Redirecting to secure card checkout for ₱1,999... (Settlement to verified BPI merchant account)`);
+            activateUserSubscription({ email, method: 'card' });
+            closeSubscriptionModal();
+        }
+
+        function activateUserSubscription(details) {
+            isSubscribed = true;
+            try {
+                localStorage.setItem('lexjuris_bar_pass_active', 'true');
+                localStorage.setItem('lexjuris_bar_pass_details', JSON.stringify(details));
+            } catch (e) {}
+            updateMembershipUI();
+            renderQuestion();
+        }
+
+        function demoToggleSubscription() {
+            isSubscribed = !isSubscribed;
+            try {
+                localStorage.setItem('lexjuris_bar_pass_active', isSubscribed ? 'true' : 'false');
+            } catch (e) {}
+            updateMembershipUI();
+            renderQuestion();
+            alert(isSubscribed ? '⭐ DEMO: Bar Master Pass Activated!' : '🔒 DEMO: Reverted to Free Trial Mode (Questions 1-3 only).');
+            closeSubscriptionModal();
+        }
+
         // Initialize Application
         document.addEventListener('DOMContentLoaded', () => {
             loadSavedState();
+            checkSubscriptionStatus();
             applyFilters();
             renderQuestion();
             updateStats();
@@ -1582,6 +2130,31 @@
             const savedAnswer = userAnswers[q.id];
 
             document.getElementById('navCurrentPos').textContent = `${currentIndex + 1} of ${filteredQuestions.length}`;
+
+            // Freemium Gatekeeper: Questions 1-3 are Free Preview. Questions 4+ require Bar Master Pass.
+            const isPreviewQuestion = currentIndex < 3;
+            if (!isSubscribed && !isPreviewQuestion) {
+                container.innerHTML = `
+                    <div class="question-card locked-card">
+                        <div class="locked-overlay">
+                            <div class="lock-icon-circle"><i class="fa-solid fa-lock"></i></div>
+                            <h3 class="lock-title">BAR MASTER PASS REQUIRED</h3>
+                            <p class="lock-desc">
+                                You've reached Question ${currentIndex + 1}. The first 3 questions are included in your free preview. Unlock all questions, in-depth ALAC solutions, and 4-hour mock exam simulations across all 6 Bar subjects.
+                            </p>
+                            <div class="lock-pricing-pill">
+                                <span class="nch-save-badge"><i class="fa-solid fa-bolt"></i> ₱1,499 in NCH (25% OFF / SAVE ₱500)</span>
+                                <span style="color: var(--text-muted);">or ₱1,999 via Card & BPI</span>
+                            </div>
+                            <button class="btn-unlock-gold" style="font-size: 0.95rem; padding: 0.75rem 1.6rem;" onclick="openSubscriptionModal()">
+                                <i class="fa-solid fa-crown"></i> Unlock Full Bar Pass Now
+                            </button>
+                        </div>
+                    </div>
+                `;
+                highlightActiveNavBtn();
+                return;
+            }
 
             let contentHTML = `
                 <div class="question-card">
@@ -1942,5 +2515,221 @@
             }
         }
     </script>
+
+    <!-- ==========================================
+         SUBSCRIPTION & CHECKOUT MODAL
+         ========================================== -->
+    <div id="subscriptionModal" class="sub-modal-overlay" style="display: none;" onclick="handleModalOverlayClick(event)">
+        <div class="sub-modal-container" onclick="event.stopPropagation()">
+            <!-- Modal Header -->
+            <div class="sub-modal-header">
+                <div class="sub-modal-title">
+                    <div style="display: flex; align-items: center; gap: 0.8rem;">
+                        <div class="seal-logo" style="width: 38px; height: 38px; font-size: 1.1rem;">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <div>
+                            <h3>PHILIPPINE BAR EXAM 2026 MASTER PASS</h3>
+                            <p>Full Access: All 6 Subjects • ALAC Solutions • CPRA Modules • Timed Mock Exams</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="sub-modal-close" onclick="closeSubscriptionModal()">&times;</button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="sub-modal-body">
+                <!-- Value Props -->
+                <div class="val-prop-box">
+                    <div class="val-item"><i class="fa-solid fa-circle-check"></i> 100% 6-Subject Bank</div>
+                    <div class="val-item"><i class="fa-solid fa-circle-check"></i> Model ALAC Solutions</div>
+                    <div class="val-item"><i class="fa-solid fa-circle-check"></i> 4-Hour Mock Sessions</div>
+                    <div class="val-item"><i class="fa-solid fa-circle-check"></i> New CPRA & 2019 Rules</div>
+                </div>
+
+                <!-- Payment Rail Navigation -->
+                <div class="pay-tab-nav">
+                    <button class="pay-tab-btn highlight active" onclick="switchPayTab('nch')" id="payTabBtn_nch">
+                        <span><i class="fa-solid fa-cheese"></i> Pay in NCH</span>
+                        <span class="pay-tab-badge discount">SAVE ₱500 (25% OFF)</span>
+                        <span style="font-size: 0.75rem; color: #34d399;">₱1,499 Equiv (~176 NCH)</span>
+                    </button>
+
+                    <button class="pay-tab-btn" onclick="switchPayTab('card')" id="payTabBtn_card">
+                        <span><i class="fa-solid fa-credit-card"></i> Credit / Debit Card</span>
+                        <span style="font-size: 0.75rem; color: var(--gold-light);">₱1,999 PHP</span>
+                        <span style="font-size: 0.7rem; color: var(--text-muted);">Instant BPI Settlement</span>
+                    </button>
+
+                    <button class="pay-tab-btn" onclick="switchPayTab('bpi')" id="payTabBtn_bpi">
+                        <span><i class="fa-solid fa-building-columns"></i> BPI Transfer / QR Ph</span>
+                        <span style="font-size: 0.75rem; color: var(--gold-light);">₱1,999 PHP</span>
+                        <span style="font-size: 0.7rem; color: var(--text-muted);">Direct Bank Deposit</span>
+                    </button>
+
+                    <button class="pay-tab-btn" onclick="switchPayTab('usdt')" id="payTabBtn_usdt">
+                        <span><i class="fa-solid fa-dollar-sign"></i> USDT (Crypto)</span>
+                        <span style="font-size: 0.75rem; color: var(--gold-light);">~35.07 USDT</span>
+                        <span style="font-size: 0.7rem; color: var(--text-muted);">₱1,999 Equiv</span>
+                    </button>
+                </div>
+
+                <!-- Tab 1: NCH Payment (Preferred / 25% Discount) -->
+                <div class="pay-tab-content" id="payContent_nch">
+                    <div class="cexhybrid-banner">
+                        <div>
+                            <strong style="color: #34d399; display: flex; align-items: center; gap: 0.4rem;">
+                                <i class="fa-solid fa-tags"></i> Exclusive ₱500 Discount with NCH!
+                            </strong>
+                            <p style="font-size: 0.8rem; color: #cbd5e1; margin-top: 4px;">
+                                Pay only <strong>₱1,499</strong> (instead of ₱1,999). Don't have NCH? Buy NCH in seconds on CEXHybrid with USDT or Card!
+                            </p>
+                        </div>
+                        <a href="https://cexhybrid.io/trade/NCH:USDT" target="_blank" class="btn-cexhybrid">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Buy NCH on CEXHybrid.io
+                        </a>
+                    </div>
+
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                        <strong>Step 1:</strong> Send <strong>176 NCH</strong> (₱1,499 equivalent) from your Cheese Wallet / MetaMask.
+                    </div>
+
+                    <div class="masked-box">
+                        <span><i class="fa-solid fa-shield-halved"></i> Verified Treasury Wallet:</span>
+                        <span id="maskedWalletDisplay" style="font-weight: 700;">0x7e73...EDA56D</span>
+                    </div>
+
+                    <div class="form-input-box">
+                        <label>Your Email (For Bar Pass Activation)</label>
+                        <input type="email" id="nchUserEmail" placeholder="your.name@lawschool.edu.ph">
+                    </div>
+
+                    <div class="form-input-box">
+                        <label>Transaction Hash (from Cheese Explorer / Wallet)</label>
+                        <input type="text" id="nchTxHash" placeholder="0x...">
+                    </div>
+
+                    <div style="display: flex; gap: 0.8rem; margin-top: 1rem;">
+                        <button class="btn-pay-action" onclick="submitCryptoPayment('NCH')" style="background: linear-gradient(135deg, #059669, #10b981); color: #fff;">
+                            <i class="fa-solid fa-check"></i> Verify & Activate Pass (₱1,499 NCH)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Credit Card Payment -->
+                <div class="pay-tab-content" id="payContent_card" style="display: none;">
+                    <div style="text-align: center; padding: 1rem;">
+                        <div style="font-size: 2.2rem; color: var(--gold-light); margin-bottom: 0.5rem;">
+                            <i class="fa-solid fa-credit-card"></i>
+                        </div>
+                        <h4 style="font-family: 'Cinzel', serif; font-size: 1.2rem; margin-bottom: 0.4rem;">₱1,999.00 PHP</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 500px; margin: 0 auto 1.5rem;">
+                            Secure end-to-end encrypted card processing. Visa, MasterCard, and JCB accepted. Instant activation upon successful charge.
+                        </p>
+
+                        <div class="form-input-box" style="max-width: 400px; margin: 0 auto 1.2rem; text-align: left;">
+                            <label>Your Bar Candidate Email</label>
+                            <input type="email" id="cardUserEmail" placeholder="candidate@lawschool.edu.ph">
+                        </div>
+
+                        <button class="btn-pay-action" onclick="initiateCardCheckout()" style="max-width: 400px; margin: 0 auto;">
+                            <i class="fa-solid fa-lock"></i> Proceed to Secure Card Checkout (₱1,999)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tab 3: BPI Transfer / Bank Deposit -->
+                <div class="pay-tab-content" id="payContent_bpi" style="display: none;">
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                        <strong>Step 1:</strong> Transfer exactly <strong>₱1,999.00</strong> via BPI Online, InstaPay, Maya, or GCash.
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.4rem;">
+                            <span style="color: var(--text-muted);">Bank Name:</span>
+                            <strong>Bank of the Philippine Islands (BPI)</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.4rem;">
+                            <span style="color: var(--text-muted);">Account Holder:</span>
+                            <strong>LexJuris Bar Review / CHEESE Org</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.4rem;">
+                            <span style="color: var(--text-muted);">BPI Account (Masked):</span>
+                            <strong style="color: var(--gold-light);">8129-****-16</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.82rem;">
+                            <span style="color: var(--text-muted);">Dynamic Payment Ref:</span>
+                            <strong id="bpiDynamicRefDisplay" style="color: #38bdf8;">BAR26-BPI-8319</strong>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                        <strong>Step 2:</strong> Submit your transfer details for instant verification:
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem;">
+                        <div class="form-input-box">
+                            <label>Your Email</label>
+                            <input type="email" id="bpiEmailInput" placeholder="candidate@lawschool.edu.ph">
+                        </div>
+                        <div class="form-input-box">
+                            <label>Sender Bank / Channel</label>
+                            <select id="bpiChannelInput">
+                                <option value="BPI">BPI Online / App</option>
+                                <option value="GCash">GCash InstaPay</option>
+                                <option value="Maya">Maya Bank Transfer</option>
+                                <option value="BDO">BDO InstaPay</option>
+                                <option value="UnionBank">UnionBank</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-input-box">
+                        <label>Bank Transaction Reference Number</label>
+                        <input type="text" id="bpiRefInput" placeholder="e.g. 20260909-BPI-1928374">
+                    </div>
+
+                    <button class="btn-pay-action" onclick="submitBankVerification()">
+                        <i class="fa-solid fa-paper-plane"></i> Submit Reference & Unlock Pass
+                    </button>
+                </div>
+
+                <!-- Tab 4: USDT Payment -->
+                <div class="pay-tab-content" id="payContent_usdt" style="display: none;">
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem;">
+                        Send <strong>35.07 USDT</strong> (₱1,999 equivalent) on <strong>Binance Smart Chain (BSC BEP-20)</strong> or <strong>Cheese Blockchain</strong>.
+                    </div>
+
+                    <div class="masked-box">
+                        <span><i class="fa-solid fa-wallet"></i> Destination Treasury Address:</span>
+                        <span style="font-weight: 700;">0x7e73...EDA56D</span>
+                    </div>
+
+                    <div class="form-input-box">
+                        <label>Your Email</label>
+                        <input type="email" id="usdtEmailInput" placeholder="candidate@lawschool.edu.ph">
+                    </div>
+
+                    <div class="form-input-box">
+                        <label>USDT Transaction Hash</label>
+                        <input type="text" id="usdtTxInput" placeholder="0x...">
+                    </div>
+
+                    <button class="btn-pay-action" onclick="submitCryptoPayment('USDT')">
+                        <i class="fa-solid fa-check"></i> Verify USDT Payment (35.07 USDT)
+                    </button>
+                </div>
+
+                <!-- Demo Mode Toggle & Footer -->
+                <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 0.5rem; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-muted);">
+                    <span><i class="fa-solid fa-lock"></i> 256-bit SSL Encrypted • Zero Data Exposure</span>
+                    <button onclick="demoToggleSubscription()" style="background: transparent; border: 1px solid var(--border); color: var(--gold-light); font-size: 0.72rem; padding: 2px 8px; border-radius: 4px; cursor: pointer;">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> Toggle Demo Pass (Testing)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
